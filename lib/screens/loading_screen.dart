@@ -18,7 +18,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     await locationData.getCurrentLocation();
 
     if (locationData.latitude == null || locationData.longitude == null) {
-      // Handle no location
+      // todo: Handle no location
     }
   }
 
@@ -32,14 +32,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
     if (weatherData.currentTemperature == null ||
         weatherData.currentCondition == null) {
-      // Handle no weather
+      // todo: Handle no weather
     }
 
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
         builder: (context) {
-          return MainScreen();
+          return MainScreen(
+            weatherData: weatherData,
+          );
         },
       ),
     );
