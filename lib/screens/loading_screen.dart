@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:simple_weather/constants.dart';
+import 'package:simple_weather/screens/main_screen.dart';
 import 'package:simple_weather/utils/location.dart';
+import 'package:simple_weather/utils/weather.dart';
 
 class LoadingScreen extends StatefulWidget {
   @override
@@ -9,20 +11,40 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
-  void getLocationData() async {
-    LocationHelper locationHelper = LocationHelper();
-    await locationHelper.getCurrentLocation();
+  LocationHelper locationData;
 
-    if (locationHelper == null) {
-      // Navigator.pushReplacement(context, newRoute)
+  Future<void> getLocationData() async {
+    locationData = LocationHelper();
+    await locationData.getCurrentLocation();
+
+    if (locationData.latitude == null || locationData.longitude == null) {
+      // Handle no location
     }
+  }
+
+  void getWeatherData() async {
+    // Fetch the location
+    await getLocationData();
+
+    // Fetch the current weather
+    WeatherData weatherData = WeatherData(locationData: locationData);
+    await weatherData.getCurrentTemperature();
+
+    if (weatherData.currentTemperature == null ||
+        weatherData.currentCondition == null) {
+      // Handle no weather
+    }
+
+    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+      return MainScreen();
+    }));
   }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    getLocationData();
+    getWeatherData();
   }
 
   @override
