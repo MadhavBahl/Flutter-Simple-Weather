@@ -56,14 +56,14 @@ class _MainScreenState extends State<MainScreen> {
               child: weatherDisplayIcon,
             ),
             SizedBox(
-              height: 5.0,
+              height: 15.0,
             ),
             Center(
               child: Text(
                 ' $temperature°',
                 style: TextStyle(
                   color: Colors.white,
-                  fontSize: 85.0,
+                  fontSize: 80.0,
                   letterSpacing: -5,
                 ),
               ),
