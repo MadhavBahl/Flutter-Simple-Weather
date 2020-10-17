@@ -9,18 +9,18 @@ const kLinearGradient = LinearGradient(
 
 Icon kCloudIcon = Icon(
   FontAwesomeIcons.cloud,
-  size: 95.0,
+  size: 85.0,
   color: Colors.white,
 );
 
 Icon kSunIcon = Icon(
   FontAwesomeIcons.sun,
-  size: 95.0,
+  size: 85.0,
   color: Colors.white,
 );
 
 Icon kMoonIcon = Icon(
   FontAwesomeIcons.moon,
-  size: 95.0,
+  size: 85.0,
   color: Colors.white,
 );

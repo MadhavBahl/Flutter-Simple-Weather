@@ -2,8 +2,16 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
+import 'package:simple_weather/constants.dart';
 import 'package:simple_weather/credentials.dart';
 import 'package:simple_weather/utils/location.dart';
+
+class WeatherDisplayData {
+  Icon weatherIcon;
+  AssetImage weatherImage;
+
+  WeatherDisplayData({@required this.weatherIcon, @required this.weatherImage});
+}
 
 class WeatherData {
   WeatherData({@required this.locationData});
@@ -28,6 +36,29 @@ class WeatherData {
       }
     } else {
       print('Could not fetch temperature!');
+    }
+  }
+
+  WeatherDisplayData getWeatherDisplayData() {
+    if (currentCondition < 600) {
+      return WeatherDisplayData(
+        weatherIcon: kCloudIcon,
+        weatherImage: AssetImage('assets/cloud.png'),
+      );
+    } else {
+      var now = new DateTime.now();
+
+      if (now.hour >= 15) {
+        return WeatherDisplayData(
+          weatherImage: AssetImage('assets/night.png'),
+          weatherIcon: kMoonIcon,
+        );
+      } else {
+        return WeatherDisplayData(
+          weatherIcon: kSunIcon,
+          weatherImage: AssetImage('assets/sunny.png'),
+        );
+      }
     }
   }
 }
