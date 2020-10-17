@@ -35,9 +35,14 @@ class _LoadingScreenState extends State<LoadingScreen> {
       // Handle no weather
     }
 
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-      return MainScreen();
-    }));
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) {
+          return MainScreen();
+        },
+      ),
+    );
   }
 
   @override
@@ -49,15 +54,17 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: kLinearGradient,
-      ),
-      child: Center(
-        child: SpinKitRipple(
-          color: Colors.white,
-          size: 150.0,
-          duration: Duration(milliseconds: 1200),
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: kLinearGradient,
+        ),
+        child: Center(
+          child: SpinKitRipple(
+            color: Colors.white,
+            size: 150.0,
+            duration: Duration(milliseconds: 1200),
+          ),
         ),
       ),
     );
