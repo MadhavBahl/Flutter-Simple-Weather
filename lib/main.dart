@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:simple_weather/screens/loading_screen.dart';
+import 'package:simple_weather/screens/main_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,20 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData.dark(),
       home: Scaffold(
-        body: Container(
-          constraints: BoxConstraints.expand(),
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/sunny.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Column(
-            children: [
-              Text('WEATHER APP'),
-            ],
-          ),
-        ),
+        body: LoadingScreen(),
       ),
     );
   }
