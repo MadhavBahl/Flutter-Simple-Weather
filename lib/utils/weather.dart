@@ -19,10 +19,13 @@ class WeatherData {
   LocationHelper locationData;
   double currentTemperature;
   int currentCondition;
+  double windSpeed;
+  double realFeal;
+  int humidity;
 
   Future<void> getCurrentTemperature() async {
     Response response = await get(
-        'http://api.openweathermap.org/data/2.5/weather?lat=${locationData.latitude}&lon=${locationData.longitude}&appid=${apiKey}&units=metric');
+        'http://api.openweathermap.org/data/2.5/weather?lat=${locationData.latitude}&lon=${locationData.longitude}&appid=$apiKey&units=metric');
 
     if (response.statusCode == 200) {
       String data = response.body;
@@ -31,6 +34,10 @@ class WeatherData {
       try {
         currentTemperature = currentWeather['main']['temp'];
         currentCondition = currentWeather['weather'][0]['id'];
+        windSpeed = currentWeather['wind']['speed'];
+        realFeal = currentWeather['main']['feels_like'];
+        humidity = currentWeather['main']['humidity'];
+
       } catch (e) {
         print(e);
       }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:simple_weather/constants.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:simple_weather/constants.dart';
+import 'package:simple_weather/screens/weather_details.dart';
 import 'package:simple_weather/utils/weather.dart';
 
 class MainScreen extends StatefulWidget {
@@ -29,7 +30,6 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     updateDisplayInfo(widget.weatherData);
@@ -38,6 +38,24 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return DetailsPage(weatherData: widget.weatherData,);
+          },
+        ),
+      );
+        },
+        backgroundColor: Colors.transparent,
+        elevation: 20,
+        label: Row(
+          children: [
+            Text('More Details',style: TextStyle(color: Colors.white),),
+            SizedBox(width: 5,),
+            Icon(Icons.arrow_forward_ios,color: Colors.white,)
+          ],
+        ),
+      ),
       body: Container(
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
