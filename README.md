@@ -21,3 +21,14 @@ Huge shout-out to [Yegor Shustov](https://dribbble.com/YegorShustov) for the ama
 ![weather](./assets/weather.png)
 
 Check out the amazing designs here - [Weather Cards](https://dribbble.com/shots/6887377-Weather-Cards)
+
+
+Huge shout-out to Freepik for the icon
+
+![icon](https://user-images.githubusercontent.com/39939752/97156666-0bc9a200-179d-11eb-97de-b9aed5134185.png)
+
+
+Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
+
+
+
