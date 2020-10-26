@@ -14,7 +14,7 @@ class LoadingScreen extends StatefulWidget {
 class _LoadingScreenState extends State<LoadingScreen> {
   LocationHelper locationData;
   bool _gotLocation = true;
-  bool _gotWeather = false;
+  bool _gotWeather = true;
 
   Future<void> getLocationData() async {
     locationData = LocationHelper();
