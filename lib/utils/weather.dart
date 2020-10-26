@@ -19,6 +19,9 @@ class WeatherData {
   LocationHelper locationData;
   double currentTemperature;
   int currentCondition;
+  double windSpeed;
+  double realFeal;
+  int humidity;
 
   Future<void> getCurrentTemperature() async {
     Response response = await get(
@@ -31,6 +34,10 @@ class WeatherData {
       try {
         currentTemperature = currentWeather['main']['temp'];
         currentCondition = currentWeather['weather'][0]['id'];
+        windSpeed = currentWeather['wind']['speed'];
+        realFeal = currentWeather['main']['feels_like'];
+        humidity = currentWeather['main']['humidity'];
+
       } catch (e) {
         print(e);
       }
