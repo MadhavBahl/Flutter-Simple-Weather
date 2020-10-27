@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:simple_weather/constants.dart';
 import 'package:simple_weather/utils/weather.dart';
 
 class MainScreen extends StatefulWidget {
@@ -42,9 +40,9 @@ class _MainScreenState extends State<MainScreen> {
         constraints: BoxConstraints.expand(),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: backgroundImage,
-            fit: BoxFit.cover,
-          ),
+              image: backgroundImage,
+              fit: BoxFit.cover,
+              alignment: AlignmentDirectional.center),
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
